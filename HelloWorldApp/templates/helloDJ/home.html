@@ -1,5 +1,8 @@
 {% extends "helloDJ/base.html" %}
 {% block content %}
-{{ Testing }}
-{{ HelloHello }}
+<ul>
+{% for line in lines %}
+ <li style="color:{% cycle 'black' 'blue' 'green' %}"> {{ line.text }}</li>
+{% endfor %}
+</ul>
 {% endblock %}
