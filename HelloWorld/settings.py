@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'HelloWorldApp',
     'blog',
     'myapp',
+    'djangoapp',
 )
 
 MIDDLEWARE_CLASSES = (

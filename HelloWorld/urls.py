@@ -20,6 +20,13 @@ urlpatterns = patterns('',
     url(r'^hello_template_simple/$', 'blog.views.hello_template_simple'),
     url(r'^hello_class_view/$', HelloTemplate.as_view()),
     url(r'^myapp/', include('myapp.urls')),
+    # user authentication urls
+    url(r'^accounts/login/$', 'djangoapp.views.login'),
+    url(r'^accounts/auth/$', 'djangoapp.views.auth_view'),
+    url(r'^accounts/login/accounts/auth/$', 'djangoapp.views.auth_view'),
+    url(r'^accounts/logout/$', 'djangoapp.views.logout'),
+    url(r'^accounts/loggedin/$', 'djangoapp.views.loggedin'),
+    url(r'^accounts/invalid/$', 'djangoapp.views.invalid_login'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += patterns('',
