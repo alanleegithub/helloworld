@@ -26,6 +26,10 @@ TEMPLATE_DEBUG = True
 TEMPLATE_LOADERS = ('django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader')
 
+TEMPLATE_DIRS = (
+    '/home/alan/djcode/HelloWorld/templates',
+)
+
 ALLOWED_HOSTS = []
 
 
@@ -39,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'HelloWorldApp',
+    'blog',
 )
 
 MIDDLEWARE_CLASSES = (
