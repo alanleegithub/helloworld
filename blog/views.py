@@ -28,3 +28,4 @@ class HelloTemplate(TemplateView):
       context = super(HelloTemplate, self).get_context_data(**kwargs)
       context['name'] = 'Bogo'
       return context
+
