@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'blog',
     'myapp',
     'djangoapp',
+    'taggit',
 )
 
 MIDDLEWARE_CLASSES = (
