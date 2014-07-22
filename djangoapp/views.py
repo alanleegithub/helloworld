@@ -10,8 +10,9 @@ def home(request):
 def login(request):
     c = {}
     c.update(csrf(request))
+    #return render_to_response('login.html', )
     return render_to_response('login.html', c)
-
+    
 def auth_view(request):
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
@@ -33,3 +34,26 @@ def loggedin(request):
 
 def invalid_login(request):
     return render_to_response('invalid_login.html')
+
+from django.contrib.auth.forms import UserCreationForm
+
+def register_user(request):
+    # 2nd time around
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/accounts/register_success')
+
+    # 1st time visit
+    args = {}
+    args.update(csrf(request))
+
+    # form with no input
+    args['form'] = UserCreationForm()
+    print args
+    
+    return render_to_response('register.html', args)
+
+def register_success(request):
+    return render_to_response('register_success.html')

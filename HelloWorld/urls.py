@@ -27,6 +27,9 @@ urlpatterns = patterns('',
     url(r'^accounts/logout/$', 'djangoapp.views.logout'),
     url(r'^accounts/loggedin/$', 'djangoapp.views.loggedin'),
     url(r'^accounts/invalid/$', 'djangoapp.views.invalid_login'),
+    url(r'^accounts/register/$', 'djangoapp.views.register_user'),
+    url(r'^accounts/register_success/$', 'djangoapp.views.register_success'),
+
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += patterns('',
