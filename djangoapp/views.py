@@ -57,3 +57,25 @@ def register_user(request):
 
 def register_success(request):
     return render_to_response('register_success.html')
+
+from forms import MyRegistrationForm
+def register_user(request):
+    # 2nd time around
+    if request.method == 'POST':
+        form = MyRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/accounts/register_success')
+
+    # 1st time visit
+    args = {}
+    args.update(csrf(request))
+
+    # form with no input
+    args['form'] = MyRegistrationForm()
+    print args
+    
+    return render_to_response('register.html', args)
+
+def register_success(request):
+    return render_to_response('register_success.html')
