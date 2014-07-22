@@ -1,9 +1,22 @@
 <html>
   <head>
     <title>This is Hello World app!</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "djangoapp/mystyle.css" %}" />
+
+    <!-- hard coded : working
+    <link rel="stylesheet" type="text/css" href="/static/djangoapp/mystyle.css"/>
+    -->
   </head>
+  <!--<body style="background-color:yellow;"> -->
   <body>
-    <h1>Welcome to Django at bogotobogo.com</h1>
+    {% load staticfiles %}
+    <img src="{% static "djangoapp/DjangoImg.jpg" %}" alt="My image"/>
+
+    <!-- hard coded : working
+    <img src="/static/djangoapp/DjangoImg.jpg"  alt="My image"/>
+    -->
+    <h1>Welcome to Django at bogotobogo.com  - (djangoapp/templates/base.html)</h1>
     {% block content %}
     {% endblock %}
   </body>
